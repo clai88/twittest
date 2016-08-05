@@ -1,0 +1,7 @@
+<h1>Congrat's! Here's your new tweet</h1>
+
+<%= @tweet.body %>
+
+<h6>created at <%= @tweet.created_at.to_formatted_s(:long_ordinal) %></h6>
+
+<%= link_to "Back to your tweets", tweets_path %>

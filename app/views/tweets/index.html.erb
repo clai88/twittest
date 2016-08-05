@@ -3,15 +3,46 @@
 <% if @tweets == nil %>
  You currently have no tweets
 
-<% else %>
-<% @tweets.each do |tweet| %>
+ <% else %>
+ <table>
+   <thead>
+     <tr>
+       <th>
+         Tweet name
+       </th>
+       <th>
+         Posted by
+       </th>
+       <th>
+         Created at
+       </th>
+       <th>
+         Edit
+       </th>
+       <th>
+         Delete
+       </th>
+     </tr>
+   </thead>
+   <tbody>
+     <% @tweets.each do |tweet| %>
+     <tr>
+       <td>
+         <%= tweet.body %>
+       </td>
+       <td>
+         You!
+       </td>
+       <td>
+         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
+       </td>
+     </tr>
+     <% end %>
 
-<p>
-  <%= tweet.body %>
-</p>
+   </tbody>
+ </table>
+ <% end %>
 
-<% end %>
-<% end %>
 
 <%= link_to "Go back to the main page", welcome_path %>
 

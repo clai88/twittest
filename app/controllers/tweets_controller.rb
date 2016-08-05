@@ -12,10 +12,15 @@ class TweetsController < ApplicationController
     @tweet.user_id = session[:user_id]
 
     if @tweet.save
-      redirect_to tweets_path
+      redirect_to tweet_path(@tweet.id)
     else
       render :new
     end
+  end
+
+  def show
+    tweets = Tweet.where(user_id: session[:user_id])
+    @tweet= tweets.find_by(id: params["id"])
   end
 
   private def tweet_params

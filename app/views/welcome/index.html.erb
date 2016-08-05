@@ -4,13 +4,44 @@
  There are currently no tweets to show
 
 <% else %>
-<% @tweets.each do |tweet| %>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Tweet name
+      </th>
+      <th>
+        Posted by
+      </th>
+      <th>
+        Created at
+      </th>
+      <th>
+        Edit
+      </th>
+      <th>
+        Delete
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tweets.each do |tweet| %>
 
-<p>
-  <%= tweet.body %>
-</p>
+    <tr>
+      <td>
+        <%= tweet.body %>
+      </td>
+      <td>
+        <%= tweet.user.name %>
+      </td>
+      <td>
+        <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
+      </td>
+    </tr>
+    <% end %>
 
-<% end %>
+  </tbody>
+</table>
 <% end %>
 
 <%= link_to "Go to your tweets", tweets_path %>
