@@ -2,7 +2,6 @@
 
 <% if @tweets == nil %>
  You currently have no tweets
-
  <% else %>
  <table>
    <thead>
@@ -11,10 +10,10 @@
          Tweet name
        </th>
        <th>
-         Posted by
+         Created at
        </th>
        <th>
-         Created at
+         Last updated at
        </th>
        <th>
          Edit
@@ -31,10 +30,16 @@
          <%= tweet.body %>
        </td>
        <td>
-         You!
+         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
        </td>
        <td>
-         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
+         <%= tweet.updated_at.to_formatted_s(:long_ordinal) %>
+       </td>
+       <td>
+         <%= link_to "edit tweet", edit_tweet_path(tweet.id) %>
+       </td>
+       <td>
+         <%= link_to "delete tweet", tweet_path(tweet.id), method: :delete %>
        </td>
      </tr>
      <% end %>

@@ -17,10 +17,7 @@
         Created at
       </th>
       <th>
-        Edit
-      </th>
-      <th>
-        Delete
+        Updated at
       </th>
     </tr>
   </thead>
@@ -36,6 +33,9 @@
       </td>
       <td>
         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
+      </td>
+      <td>
+        <%= tweet.updated_at.to_formatted_s(:long_ordinal) %>
       </td>
     </tr>
     <% end %>

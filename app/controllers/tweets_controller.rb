@@ -23,6 +23,26 @@ class TweetsController < ApplicationController
     @tweet= tweets.find_by(id: params["id"])
   end
 
+  def edit
+    tweets = Tweet.where(user_id: session[:user_id])
+    @tweet= tweets.find_by(id: params["id"])
+  end
+
+  def update
+    tweets = Tweet.where(user_id: session[:user_id])
+    @tweet= tweets.find_by(id: params["id"])
+
+    @tweet.update(tweet_params)
+    redirect_to tweets_path
+  end
+
+  def destroy
+    tweets = Tweet.where(user_id: session[:user_id])
+    tweets.find_by(id: params["id"]).destroy
+
+    redirect_to tweets_path
+  end
+
   private def tweet_params
     params.require("tweet").permit(:body, :user_id)
   end
