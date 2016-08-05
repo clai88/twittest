@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   post '/login' => "sessions#create"
   delete '/login' => "sessions#destroy"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    member do
+      post :welcome
+    end
+  end
 
   resources :tweets
   get '/:user_id/tweets' => "tweets#profile", as: :profile
-
 
 
 
