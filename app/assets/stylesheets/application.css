@@ -14,12 +14,37 @@
  *= require_self
  */
 body{
-  background-color: #eee
-
+  background-color: rgb(5, 0, 255)
 }
+
  main {
    width: 600px;
    margin: 0 auto;
-   background-color: rgb(81, 235, 92);
+   background-color: rgb(150, 221, 155);
    padding: 20px;
  }
+
+ table{
+   width: 300;
+   margin: 0 auto;
+ }
+
+ .tweet{
+  background-color: rgb(243, 242, 247);
+  display: inline-block;
+  padding: 16px;
+  margin: 10px 0;
+  max-width: 468px;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font: bold 14px/18px Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+.tweet p{
+  font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
+  margin: 0 5px 10px 0;
+}

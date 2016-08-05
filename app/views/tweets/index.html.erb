@@ -3,49 +3,17 @@
 <% if @tweets == nil %>
  You currently have no tweets
  <% else %>
- <table>
-   <thead>
-     <tr>
-       <th>
-         Tweet name
-       </th>
-       <th>
-         Created at
-       </th>
-       <th>
-         Last updated at
-       </th>
-       <th>
-         Edit
-       </th>
-       <th>
-         Delete
-       </th>
-     </tr>
-   </thead>
-   <tbody>
-     <% @tweets.each do |tweet| %>
-     <tr>
-       <td>
-         <%= tweet.body %>
-       </td>
-       <td>
-         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
-       </td>
-       <td>
-         <%= tweet.updated_at.to_formatted_s(:long_ordinal) %>
-       </td>
-       <td>
-         <%= link_to "edit tweet", edit_tweet_path(tweet.id) %>
-       </td>
-       <td>
-         <%= link_to "delete tweet", tweet_path(tweet.id), method: :delete %>
-       </td>
-     </tr>
-     <% end %>
-
-   </tbody>
- </table>
+ <% @tweets.each do |tweet| %>
+   <article class="tweet">
+   <p>
+     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
+   </p>
+   <cite>
+     <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
+     <%= link_to "edit", edit_tweet_path(tweet.id) %>
+   </cite>
+   </article>
+ <% end %>
  <% end %>
 
 

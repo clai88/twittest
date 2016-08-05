@@ -20,8 +20,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-    tweets = Tweet.where(user_id: session[:user_id])
-    @tweet= tweets.find_by(id: params["id"])
+    @tweet= Tweet.find_by(id: params["id"])
   end
 
   def edit

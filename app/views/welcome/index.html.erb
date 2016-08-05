@@ -4,42 +4,23 @@
 There are currently no tweets to show
 
 <% else %>
-<table>
-  <thead>
-    <tr>
-      <th>
-        Tweet name
-      </th>
-      <th>
-        Posted by
-      </th>
-      <th>
-        Created at
-      </th>
-      <th>
-        Updated at
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tweets.each do |tweet| %>
-    <tr>
-      <td>
-        <%= tweet.body %>
-      </td>
-      <td>
-        <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
-      </td>
-      <td>
-        <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
-      </td>
-      <td>
-        <%= tweet.updated_at.to_formatted_s(:long_ordinal) %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<% @tweets.each do |tweet| %>
+  <article class="tweet">
+  <p>
+    <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
+  </p>
+  <cite>
+    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
+    <%= tweet.time %>
+  </cite>
+  </article>
+<% end %>
+
 <% end %>
 
 <%= link_to "Go to your tweets", tweets_path %>
+
+
+
+  <%# tweet.created_at.to_formatted_s(:long_ordinal) %>
