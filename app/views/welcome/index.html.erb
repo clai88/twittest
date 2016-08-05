@@ -28,7 +28,7 @@ There are currently no tweets to show
         <%= tweet.body %>
       </td>
       <td>
-        <%= link_to tweet.user.name, profile_path(tweet.user_id) %>
+        <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
       </td>
       <td>
         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
