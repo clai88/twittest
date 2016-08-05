@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.where(user_id: session[:user_id])
+    @users = User.all
   end
 
   def new
