@@ -1,1 +1,16 @@
-<h1>these are your tweets</h1>
+<h1>this is your main feed </h1>
+
+<% if @tweets == nil %>
+ There are currently no tweets to show
+
+<% else %>
+<% @tweets.each do |tweet| %>
+
+<p>
+  <%= tweet.body %>
+</p>
+
+<% end %>
+<% end %>
+
+<%= link_to "Go to your tweets", tweets_path %>

@@ -1,0 +1,18 @@
+<h1>These are your tweets</h1>
+
+<% if @tweets == nil %>
+ You currently have no tweets
+
+<% else %>
+<% @tweets.each do |tweet| %>
+
+<p>
+  <%= tweet.body %>
+</p>
+
+<% end %>
+<% end %>
+
+<%= link_to "Go back to the main page", welcome_path %>
+
+<%= link_to "Post new tweet", new_tweet_path %>
