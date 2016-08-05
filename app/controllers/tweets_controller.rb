@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.where(user_id: session[:user_id])
+    @tweets = Tweet.where(user_id: session[:user_id]).order(updated_at: :desc)
     @users = User.all
   end
 
@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
 
   def profile
     @user = User.find_by(id: params[:user_id])
-    @tweets = Tweet.where(user_id: @user.id)
+    @tweets = Tweet.where(user_id: @user.id).order(updated_at: :desc)
   end
 
   private def tweet_params

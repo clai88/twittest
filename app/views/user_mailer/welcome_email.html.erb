@@ -1,5 +1,15 @@
-<h1>UserMailer#welcome_email</h1>
+<h1><%= @user.name %>! Welcome to twittest.</h1>
+
+<h3>You have successfuly signed up for a Twittest account. <br>
+Welcome to your new family</h3>
+
+<h5>Start posting tweets right away by clicking this link:
+<%= @url %></h5>
+
+<hr>
 
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/welcome_email.html.erb
+Sincerly, <br>
+Chris Lai <br>
+Twittest senior back end coder
 </p>
