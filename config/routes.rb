@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'welcome/index' => "welcome#index", as: :welcome
+
   get '/login' => "sessions#new", as: :login
   post '/login' => "sessions#create"
   delete '/login' => "sessions#destroy"
