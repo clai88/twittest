@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   resources :tweets
-  # get '/:user_id/tweets' => "tweets#index", as: :tweets
-  # post '/:user_id/tweets' => "tweets#new"
+  get '/:user_id/tweets' => "tweets#profile", as: :profile
 
 
 

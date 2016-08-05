@@ -44,6 +44,11 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
+  def profile
+    @user = User.find_by(id: params[:user_id])
+    @tweets = Tweet.where(user_id: @user.id)
+  end
+
   private def tweet_params
     params.require("tweet").permit(:body, :user_id)
   end

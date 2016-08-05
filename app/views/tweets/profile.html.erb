@@ -1,7 +1,7 @@
-<h1>this is your main feed </h1>
+<h1>You are now viewing <%= @user.name %>'s tweets! </h1>
 
 <% if @tweets == nil %>
-There are currently no tweets to show
+<%= @user.name %> currently has no tweets
 
 <% else %>
 <table>
@@ -9,9 +9,6 @@ There are currently no tweets to show
     <tr>
       <th>
         Tweet name
-      </th>
-      <th>
-        Posted by
       </th>
       <th>
         Created at
@@ -28,9 +25,6 @@ There are currently no tweets to show
         <%= tweet.body %>
       </td>
       <td>
-        <%= link_to tweet.user.name, profile_path(tweet.user_id) %>
-      </td>
-      <td>
         <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
       </td>
       <td>
@@ -38,8 +32,9 @@ There are currently no tweets to show
       </td>
     </tr>
     <% end %>
+
   </tbody>
 </table>
 <% end %>
 
-<%= link_to "Go to your tweets", tweets_path %>
+<%= link_to "Back to all tweets", welcome_path %>
