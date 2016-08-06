@@ -6,15 +6,16 @@ There are currently no tweets to show
 <% else %>
 
 <% @tweets.each do |tweet| %>
-  <article class="tweet">
+<article class="tweet">
   <p>
     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
   </p>
-  <cite>
-    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %> |
+
+  <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
+  <cite>|
     <%= tweet.time %>
   </cite>
-  </article>
+</article>
 <% end %>
 
 <% end %>
@@ -24,4 +25,4 @@ There are currently no tweets to show
 </button>
 
 
-  <%# tweet.created_at.to_formatted_s(:long_ordinal) %>
+<%# tweet.created_at.to_formatted_s(:long_ordinal) %>

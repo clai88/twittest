@@ -4,28 +4,16 @@ class Tweet < ActiveRecord::Base
   validates :body, length: { maximum: 170, too_long: "Unfortunately, 170 characters is the maximum allowed.  Please shorten your teet"  }
 
   def time
-    a = self.updated_at
-    b = Time.now
-    # diff = TimeDifference.between(a,b).in_hours.to_i
-    diff = TimeDifference.between(a,b).in_minutes.to_i
-    base = TimeDifference.between(a,b)
-
-    case diff
+    base = TimeDifference.between(self.updated_at,Time.now)
+    case base.in_minutes.to_i
     when 0
-      time = TimeDifference.between(a,b).in_seconds.to_i
-      "#{time}s"
+      "#{base.in_seconds.to_i}s"
     when 0...60
-      diff
-      "#{diff}m"
+      "#{base.in_minutes.to_i}m"
     when 60...1440
-      time = TimeDifference.between(a,b).in_hours.to_i
-      "#{time}h"
+      "#{base.in_hours.to_i}h"
     when 1440...10_080
-      time = TimeDifference.between(a,b).in_days.to_i
-      "#{time}d"
-    when 10_080...43_200
-      time = TimeDifference.between(a,b).in_weeks.to_i
-      "#{time}w"
+      "#{base.in_days.to_i}d"
     else
       a.to_formatted_s(:short)
     end
