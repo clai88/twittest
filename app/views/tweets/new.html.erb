@@ -3,11 +3,6 @@
 
 <%= bootstrap_form_for @tweet, url: tweets_path do |f| %>
 
-<% @tweet.errors.full_messages.each do |msg| %>
-  <p>
-    <%= msg %>
-  </p>
-<% end %>
 <%= f.text_area :body, placeholder: "Type something that happened to you..." %>
 
 <%= f.submit "Post tweet" %>

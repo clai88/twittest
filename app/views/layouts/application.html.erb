@@ -10,7 +10,7 @@
   <main>
     <% if current_user %>
     <span>Welcome, <%= current_user.email.split("@").first %> </span> |
-    <%= link_to "Your feed", tweets_path  %> |
+    <%= link_to "Your tweets", tweets_path  %> |
     <%= link_to "All tweets", welcome_path  %> |
     <%= link_to "Log out", login_path, method: :delete %>
     <% else %>
