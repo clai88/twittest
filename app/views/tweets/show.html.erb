@@ -1,10 +1,23 @@
-<h1>Here is a tweet</h1>
+<br>
+<article class="tweet">
+<p>
+  <%= @tweet.body %>
+</p>
+<cite>
+  @<%= @tweet.user.name %> |
+  <%= @tweet.time %>
+</cite>
+</article>
 
-<%= @tweet.body %>
+<br>
+<article class="tweet">
+<cite style="font-size:8px;">
+  created at <%= @tweet.created_at.to_formatted_s(:long_ordinal) %>
 
-<h6>tweeted by <%= @tweet.user.name %></h6>
-<h6>created at <%= @tweet.created_at.to_formatted_s(:long_ordinal) %></h6>
+  <br>
 
-<h6>updated at <%= @tweet.updated_at.to_formatted_s(:long_ordinal) %></h6>
-
+  updated at <%= @tweet.updated_at.to_formatted_s(:long_ordinal) %>
+</cite>
+</article>
+<br>
 <%= link_to "Back to your tweets", tweets_path %>

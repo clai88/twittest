@@ -14,13 +14,13 @@
  *= require_self
  */
 body{
-  background-color: rgb(5, 0, 255)
+  background-color: rgb(192, 222, 237);
 }
 
  main {
    width: 600px;
    margin: 0 auto;
-   background-color: rgb(150, 221, 155);
+   background-color: rgb(29, 202, 255);
    padding: 20px;
  }
 
@@ -30,11 +30,12 @@ body{
  }
 
  .tweet{
+
   background-color: rgb(243, 242, 247);
   display: inline-block;
   padding: 16px;
   margin: 10px 0;
-  max-width: 468px;
+  max-width: 400px;
   border: #ddd 1px solid;
   border-top-color: #eee;
   border-bottom-color: #bbb;
@@ -47,4 +48,25 @@ body{
 .tweet p{
   font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
   margin: 0 5px 10px 0;
+}
+
+cite span{
+  font-weight: normal;
+  color: #666;
+  font-size: 12px;
+}
+
+h1{
+  color: rgb(3, 100, 135);
+}
+
+cite{
+  color: #666;
+  font-size: 11px;
+}
+
+span{
+  color: #337ab7;
+  font-weight: bold;
+  font-size: 12px;
 }

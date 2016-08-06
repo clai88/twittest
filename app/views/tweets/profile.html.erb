@@ -4,37 +4,19 @@
 <%= @user.name %> currently has no tweets
 
 <% else %>
-<table>
-  <thead>
-    <tr>
-      <th>
-        Tweet name
-      </th>
-      <th>
-        Created at
-      </th>
-      <th>
-        Updated at
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tweets.each do |tweet| %>
-    <tr>
-      <td>
-        <%= tweet.body %>
-      </td>
-      <td>
-        <%= tweet.created_at.to_formatted_s(:long_ordinal) %>
-      </td>
-      <td>
-        <%= tweet.updated_at.to_formatted_s(:long_ordinal) %>
-      </td>
-    </tr>
-    <% end %>
-
-  </tbody>
-</table>
+<% @tweets.each do |tweet| %>
+  <article class="tweet">
+  <p>
+    <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
+  </p>
+  <cite>
+    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %> |
+    <span>  <%= tweet.time %> </span>
+  </cite>
+  </article>
 <% end %>
+<% end %>
+
+<br>
 
 <%= link_to "Back to all tweets", welcome_path %>

@@ -11,16 +11,17 @@ There are currently no tweets to show
     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
   </p>
   <cite>
-    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
+    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %> |
     <%= tweet.time %>
   </cite>
   </article>
 <% end %>
 
 <% end %>
-
-<%= link_to "Go to your tweets", tweets_path %>
-
+<br>
+<button type="button" class="btn btn-default">
+  <%= link_to "Go to your tweets", tweets_path %>
+</button>
 
 
   <%# tweet.created_at.to_formatted_s(:long_ordinal) %>
