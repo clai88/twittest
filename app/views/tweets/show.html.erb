@@ -1,23 +1,29 @@
 <br>
 <article class="tweet">
-<p>
-  <%= @tweet.body %>
-</p>
-<cite>
-  @<%= @tweet.user.name %> |
-  <%= @tweet.time %>
-</cite>
+  <p>    
+    <%= @tweet.body %>
+  </p>
+  @<%= @tweet.user.name %>
+  <cite>|
+    <%= @tweet.time_elapsed %>
+  </cite>
 </article>
 
 <br>
 <article class="tweet">
-<cite style="font-size:8px;">
-  created at <%= @tweet.created_at.to_formatted_s(:long_ordinal) %>
+  <cite style="font-size:8px;">
+    created at <%= @tweet.created_at.to_formatted_s(:long_ordinal) %>
 
-  <br>
+    <br>
 
-  updated at <%= @tweet.updated_at.to_formatted_s(:long_ordinal) %>
-</cite>
+    updated at <%= @tweet.updated_at.to_formatted_s(:long_ordinal) %>
+  </cite>
 </article>
 <br>
-<%= link_to "Back to your tweets", tweets_path %>
+
+<button type="button" class="btn btn-default">
+  <%= link_to "Back to all tweets", welcome_path %>
+</button>
+<button type="button" class="btn btn-default">
+  <%= link_to "Go to your tweets", tweets_path %>
+</button>

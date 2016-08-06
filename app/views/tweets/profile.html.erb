@@ -9,9 +9,9 @@
   <p>
     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
   </p>
-  <cite>
-    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %> |
-    <span>  <%= tweet.time %> </span>
+  <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
+  <cite>|
+    <span>  <%= tweet.time_elapsed %> </span>
   </cite>
   </article>
 <% end %>
@@ -19,4 +19,9 @@
 
 <br>
 
-<%= link_to "Back to all tweets", welcome_path %>
+<button type="button" class="btn btn-default">
+  <%= link_to "Back to all tweets", welcome_path %>
+</button>
+<button type="button" class="btn btn-default">
+  <%= link_to "Go to your tweets", tweets_path %>
+</button>

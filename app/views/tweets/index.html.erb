@@ -8,11 +8,11 @@ You currently have no tweets
   <p>
     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
   </p>
-  <cite>
-    <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %> |
-    <%= link_to "edit", edit_tweet_path(tweet.id),method: :patch %> |
+  <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
+  <cite> |
+    <%= link_to "edit", edit_tweet_path(tweet.id) %> |
     <%= link_to "delete", tweet_path(tweet.id), method: :delete %> |
-    <%= tweet.time %>
+    <%= tweet.time_elapsed %>
 
   </cite>
 </article>
@@ -21,7 +21,7 @@ You currently have no tweets
 <br>
 
 <button type="button" class="btn btn-default">
-  <%= link_to "Go back to the main page", welcome_path %>
+  <%= link_to "Back to all tweets", welcome_path %>
 </button>
 
 <button type="button" class="btn btn-default">

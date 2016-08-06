@@ -1,4 +1,4 @@
-<h1>this is your main feed </h1>
+<h1>Welcome to Tweeter! </h1>
 
 <% if @tweets == nil %>
 There are currently no tweets to show
@@ -10,10 +10,14 @@ There are currently no tweets to show
   <p>
     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
   </p>
-
   <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
   <cite>|
-    <%= tweet.time %>
+    <% if tweet.user_id == current_user.id %>
+      <%= link_to "edit", edit_tweet_path(tweet.id)  %> |
+      <%= link_to "delete", tweet_path(tweet.id), method: :delete  %> |
+    <% end %>
+
+    <%= tweet.time_elapsed %>
   </cite>
 </article>
 <% end %>

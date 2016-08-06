@@ -3,7 +3,7 @@ class Tweet < ActiveRecord::Base
 
   validates :body, length: { maximum: 170, too_long: "Unfortunately, 170 characters is the maximum allowed.  Please shorten your teet"  }
 
-  def time
+  def time_elapsed
     base = TimeDifference.between(self.updated_at,Time.now)
     case base.in_minutes.to_i
     when 0
@@ -15,7 +15,7 @@ class Tweet < ActiveRecord::Base
     when 1440...10_080
       "#{base.in_days.to_i}d"
     else
-      a.to_formatted_s(:short)
+      Time.now.to_formatted_s(:short)
     end
   end
 end
