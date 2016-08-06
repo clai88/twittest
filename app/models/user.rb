@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :tweets 
   validates :email, format: {with: /@/}, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, too_short: "Please make your password at least 6 characters long"  },confirmation: true
