@@ -62,6 +62,10 @@ h1{
   color: rgb(3, 100, 135);
 }
 
+h5{
+  color: rgb(0, 132, 180);
+}
+
 cite{
   color: #666;
   font-size: 11px;

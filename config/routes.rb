@@ -12,8 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/follow/tweets' => "follow_users#index", as: :follow
   post '/follow/:user_to_follow_id' => "follow_users#create", as: :follow_users
   delete '/follow/:user_to_follow_id' => "follow_users#destroy"
+
+
 
 
   resources :tweets

@@ -1,27 +1,31 @@
-<h1>These are your tweets</h1>
+<h1>Followed Users </h1>
 
 <% if @tweets == [] %>
-You currently have no tweets
+<h5>You are currently not following any users</h5>
+
 <% else %>
+
 <% @tweets.each do |tweet| %>
 <article class="tweet">
   <p>
     <%= link_to "#{tweet.body}", tweet_path(tweet.id) %>
   </p>
   <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
-  <cite> |
-    <%= link_to "edit", edit_tweet_path(tweet.id) %> |
-    <%= link_to "delete", tweet_path(tweet.id), method: :delete %> |
-    <%= tweet.time_elapsed %>
+  <cite>|
+    <% if tweet.user_id == current_user.id %>
+      <%= link_to "edit", edit_tweet_path(tweet.id)  %> |
+      <%= link_to "delete", tweet_path(tweet.id), method: :delete  %> |
+    <% end %>
 
+    <%= tweet.time_elapsed %>
   </cite>
 </article>
 <% end %>
+
 <% end %>
 <br>
-
 <button type="button" class="btn btn-default">
-  <%= link_to "Back to all tweets", welcome_path %>
+  <%= link_to "Go to your tweets", tweets_path %>
 </button>
 
 <button type="button" class="btn btn-default">
