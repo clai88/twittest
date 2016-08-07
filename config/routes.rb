@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/follow/:user_to_follow_id' => "follow_users#create", as: :follow_users
+  delete '/follow/:user_to_follow_id' => "follow_users#destroy"
+
+
   resources :tweets
   get '/:user_id/tweets' => "tweets#profile", as: :profile
 

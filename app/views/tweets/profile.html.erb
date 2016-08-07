@@ -1,5 +1,22 @@
 <h1>You are now viewing <%= @user.name %>'s tweets! </h1>
 
+<% if FollowUser.find_by(follower_id: session[:user_id], followee_id: params[:user_id]) == nil %>
+<button type="button" class="btn btn-default">
+<img src="https://upload.wikimedia.org/wikipedia/it/0/09/Twitter_bird_logo.png" alt="" height="24" width="24" />
+  <%= link_to "Follow #{@user.name}", follow_users_path(@user.id),method: :post %>
+</button>
+
+
+<% else %>
+<button type="button" class="btn btn-default">
+  <img src="https://upload.wikimedia.org/wikipedia/it/0/09/Twitter_bird_logo.png" alt="" height="24" width="24" />
+  <%= link_to "Unfollow #{@user.name}", follow_users_path(@user.id), method: :delete %>
+</button>
+
+<% end %>
+
+<br>
+
 <% if @tweets == nil %>
 <%= @user.name %> currently has no tweets
 
