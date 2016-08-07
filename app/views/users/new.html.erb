@@ -1,10 +1,11 @@
 <h1>Welcome to Twitter</h1>
 
 <%= bootstrap_form_for @user, url: users_path do |f| %>
-  <%= f.text_field :email,icon: "user" %>
+  <%= f.text_field :email,icon: "envelope" %>
   <%= f.text_field :name, icon: "user"  %>
-  <%= f.password_field :password, icon:  "user"  %>
-  <%= f.password_field :password_confirmation, icon: "user" %>
+  <%= f.password_field :password, icon:  "lock"  %>
+  <%= f.password_field :password_confirmation, icon: "lock" %>
+
 
   <%= f.submit %>
 <% end %>
