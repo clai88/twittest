@@ -3,7 +3,7 @@
 
 <%= bootstrap_form_for @tweet, url: tweets_path do |f| %>
 
-<%= f.text_area :body, placeholder: "Type something that happened to you..." %>
+<%= f.text_area :body, placeholder: "Type something that happened to you...",icon: "pencil" %>
 
 <%= f.submit "Post tweet" %>
 

@@ -1,7 +1,7 @@
-<h1>Login to Twitter</h1>
+<h1>Login to Tweeter</h1>
 <%= bootstrap_form_for :user, url: login_path do |f| %>
-  <%= f.text_field :email, icon: "user" %>
-  <%= f.password_field :password, icon: "user" %>
+  <%= f.text_field :email, icon: "envelope" %>
+  <%= f.password_field :password, icon: "lock" %>
 
   <%= f.submit "Login" %>
 <% end %>

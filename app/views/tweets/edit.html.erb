@@ -1,7 +1,7 @@
 <h1>Edit your tweet</h1>
 
 <%= bootstrap_form_for @tweet, url: tweet_path, method: :patch do |f| %>
-<%= f.text_area :body %>
+<%= f.text_area :body, icon: "pencil"%>
 
 <%= f.submit "Update tweet" %>
 <% end %>

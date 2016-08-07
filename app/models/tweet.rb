@@ -1,7 +1,7 @@
 class Tweet < ActiveRecord::Base
   belongs_to :user
 
-  validates :body, length: { maximum: 170, too_long: "Unfortunately, 170 characters is the maximum allowed.  Please shorten your teet"  }
+  validates :body, length: { maximum: 170, too_long: "Unfortunately, 170 characters is the maximum allowed.  Please shorten your teet."  }, length: { minimum: 1, too_short: "Tweets must be at least one character long."  }
 
   def time_elapsed
     base = TimeDifference.between(self.updated_at,Time.now)
