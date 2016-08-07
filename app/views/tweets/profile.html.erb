@@ -17,8 +17,8 @@
 
 <br>
 
-<% if @tweets == nil %>
-<%= @user.name %> currently has no tweets
+<% if @tweets == [] %>
+<h5> <%= @user.name %> currently has no tweets </h5>
 
 <% else %>
 <% @tweets.each do |tweet| %>

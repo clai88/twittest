@@ -14,7 +14,7 @@
   <cite style="font-size:8px;">
     created at <%= @tweet.created_at.to_formatted_s(:long_ordinal) %>
     <br>
-    updated at <%= @tweet.updated_at.to_formatted_s(:long_ordinal) %>
+    <%= "updated at #{@tweet.updated_at.to_formatted_s(:long_ordinal)}" unless @tweet.created_at == @tweet.updated_at %>
   </cite>
 </article>
 <br>
