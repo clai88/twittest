@@ -5,6 +5,10 @@ class TweetsController < ApplicationController
   end
 
   def new
+    unless current_user
+      redirect_to welcome_path
+      return
+    end
     @tweet = Tweet.new
   end
 

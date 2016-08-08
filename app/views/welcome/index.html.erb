@@ -12,7 +12,7 @@ There are currently no tweets to show
   </p>
   <%= link_to "@#{tweet.user.name}", profile_path(tweet.user_id) %>
   <cite>|
-    <% if tweet.user_id == current_user.id %>
+    <% if current_user != nil && tweet.user_id == current_user.id %>
       <%= link_to "edit", edit_tweet_path(tweet.id)  %> |
       <%= link_to "delete", tweet_path(tweet.id), method: :delete  %> |
     <% end %>
@@ -28,9 +28,11 @@ There are currently no tweets to show
   <%= link_to "Go to your tweets", tweets_path %>
 </button>
 
+<% if current_user %>
 <button type="button" class="btn btn-default">
   <%= link_to "Post new tweet", new_tweet_path %>
 </button>
+<% end %>
 
 
 <%# tweet.created_at.to_formatted_s(:long_ordinal) %>

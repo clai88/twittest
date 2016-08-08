@@ -24,6 +24,8 @@
   <%= link_to "Back to all tweets", welcome_path %>
 </button>
 
+<% if current_user %>
 <button type="button" class="btn btn-default">
   <%= link_to "Post new tweet", new_tweet_path %>
 </button>
+<% end %>
