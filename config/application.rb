@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Twittest
   class Application < Rails::Application
     config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => "d78fd814-666f-4c36-9495-a6ea5d747841" }
+    config.action_mailer.postmark_settings = { :api_token => ENV["POSTMARK_API_TOKEN"] }
 
 
 
