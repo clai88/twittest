@@ -11,4 +11,11 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Twittest')
   end
+
+  def new_follower_email(follower,followee)
+    @follower = follower
+    @followee = followee
+
+    mail(to: @followee.email, subject: 'New Follower!')
+  end
 end
